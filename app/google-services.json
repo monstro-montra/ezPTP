@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "215752254112",
+    "project_id": "ezptp-2355e",
+    "storage_bucket": "ezptp-2355e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215752254112:android:efeed706e42bc517cf5fc5",
+        "android_client_info": {
+          "package_name": "com.javierlabs.ezptp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215752254112-r6s4u4aeehq57nk5a84poefced1ur3a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG6zTnRHXWeEOeF3mVTVdfvzSH9Am8Ru0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215752254112-r6s4u4aeehq57nk5a84poefced1ur3a5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
