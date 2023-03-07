@@ -17,11 +17,7 @@
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.EzPTP" />
 
-        <activity
-            android:name=".login.RegisterActivity"
-            android:exported="false"
-            android:label="RegisterActivity"
-            android:theme="@style/Theme.EzPTP" />
+
         <activity
             android:name=".login.LoginActivity"
             android:exported="true">
@@ -30,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
