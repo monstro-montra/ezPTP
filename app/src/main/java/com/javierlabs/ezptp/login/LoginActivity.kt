@@ -9,8 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseUser
 import com.javierlabs.ezptp.MainActivity
 import com.javierlabs.ezptp.R
 
@@ -24,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val currentUser = mAuth.currentUser //authenticate the current user
+        val currentUser: FirebaseUser? = mAuth.currentUser //authenticate the current user
         if(currentUser != null){ //if currentUser is not null
             //switch to MainActivity
             val autoLogin = Intent(this@LoginActivity, MainActivity::class.java)
@@ -37,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login) //set the content view to activity_login layout file
 
         //initialize mAuth
-        mAuth = Firebase.auth
+        mAuth = FirebaseAuth.getInstance()
 
         //initialize all view elements
         loginButton = findViewById(R.id.loginBtn)
@@ -48,8 +47,8 @@ class LoginActivity : AppCompatActivity() {
         //set action listener for the login button
         loginButton.setOnClickListener {
             //convert what's in editTextEmail and editTextPassword to email and password strings
-            var email = editTextEmail.text.toString()
-            var password = editTextPassword.text.toString()
+            val email = editTextEmail.text.toString()
+            val password = editTextPassword.text.toString()
 
             if(TextUtils.isEmpty(email)) { //if email string is empty, send a toast message.
                 Toast.makeText(this@LoginActivity, "Enter your Email.", Toast.LENGTH_SHORT).show()
@@ -62,20 +61,23 @@ class LoginActivity : AppCompatActivity() {
             }
 
             mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener {
-                    if (it.isSuccessful) {
+                .addOnCompleteListener(this) {task ->
+                    if (task.isSuccessful) {
                         Toast.makeText(applicationContext, "Login Successful.", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java)) //go to MainActivity
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
                         finish()
-                    } else {
-                        Toast.makeText(applicationContext, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                     }
-            }
+                }
+                .addOnFailureListener{
+                    Toast.makeText(applicationContext, "Authentication Failed ${it.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }
         }
 
         //if the user doesn't have an account, they can choose to go to the RegisterActivity class
         noAccount.setOnClickListener{
-            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }

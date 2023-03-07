@@ -8,8 +8,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.javierlabs.ezptp.MainActivity
 import com.javierlabs.ezptp.R
 
@@ -36,7 +34,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        mAuth = Firebase.auth
+        mAuth = FirebaseAuth.getInstance()
 
         //initialize all view elements
         signUpButton = findViewById(R.id.btnSignUp)
@@ -45,8 +43,8 @@ class RegisterActivity : AppCompatActivity() {
 
         //set onClickListener for the signUp button
         signUpButton.setOnClickListener {
-            var email = editTextEmail.text.toString()
-            var password = editTextEmail.text.toString()
+            val email: String = editTextEmail.text.toString()
+            val password: String = editTextPassword.text.toString()
 
 
             if(TextUtils.isEmpty(email)) { //if email string is empty, send a toast message.
