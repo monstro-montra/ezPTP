@@ -15,13 +15,18 @@
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.EzPTP.NoActionBar" />
+            android:theme="@style/Theme.EzPTP" />
+
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.RegisterActivity"
+            android:exported="false"
+            android:label="RegisterActivity"
+            android:theme="@style/Theme.EzPTP" />
+        <activity
+            android:name=".login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
