@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +19,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var signUpButton : Button
     private lateinit var editTextEmail : EditText
     private lateinit var editTextPassword : EditText
+    private lateinit var editTextHaveAccount : TextView
 
 
     override fun onStart() {
@@ -40,6 +42,7 @@ class RegisterActivity : AppCompatActivity() {
         signUpButton = findViewById(R.id.btnSignUp)
         editTextEmail = findViewById(R.id.edEmail)
         editTextPassword = findViewById(R.id.edPassword)
+        editTextHaveAccount = findViewById(R.id.already_have_account)
 
         //set onClickListener for the signUp button
         signUpButton.setOnClickListener {
@@ -69,6 +72,13 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                     }
                 }
+        }
+
+        //set the button logic for when the user clicks on "already have an account"
+        editTextHaveAccount.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }

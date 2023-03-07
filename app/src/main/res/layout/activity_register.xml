@@ -99,14 +99,14 @@
 
 
         <TextView
-            android:id="@+id/forgot_password"
+            android:id="@+id/already_have_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="@string/forgot_password"
+            android:text="@string/already_have_an_account"
             android:textColor="@color/colorText"
             android:textSize="13sp"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.80"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +117,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/sign_up"
-            app:layout_constraintTop_toBottomOf="@+id/forgot_password"
+            app:layout_constraintTop_toBottomOf="@+id/already_have_account"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="30dp"
