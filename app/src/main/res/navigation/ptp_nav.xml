@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainMenuFragment"
-        android:name="com.javierlabs.ezptp.MainMenuFragment"
+        android:name="com.javierlabs.ezptp.main_menu.MainMenuFragment"
         android:label="fragment_main_menu"
         tools:layout="@layout/fragment_main_menu" >
         <action

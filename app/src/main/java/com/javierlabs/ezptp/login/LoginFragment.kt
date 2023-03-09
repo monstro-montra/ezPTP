@@ -2,19 +2,13 @@ package com.javierlabs.ezptp.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Layout
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.javierlabs.ezptp.MainActivity
+import com.javierlabs.ezptp.main_menu.MenuActivity
 import com.javierlabs.ezptp.R
 import com.javierlabs.ezptp.databinding.FragmentLoginBinding
 
@@ -53,7 +47,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             Toast.makeText(activity, "Login Successful.", Toast.LENGTH_SHORT).show()
                             activity?.let{
                                 //if all is successful, go to MainActivity class
-                                val goToMainActivity = Intent(it, MainActivity::class.java)
+                                val goToMainActivity = Intent(it, MenuActivity::class.java)
                                 it.startActivity(goToMainActivity)
                             }
 

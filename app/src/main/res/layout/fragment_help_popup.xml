@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
-    android:layout_height="350dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="400dp"
+    android:layout_height="400dp"
     android:layout_gravity="center">
 
     <ImageView
         android:id="@+id/helpIV"
-        android:layout_width="150dp"
-        android:layout_height="175dp"
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        />
+        android:layout_marginTop="2dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/disclaimer_image_regarding_safety"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/safety"
+        app:layout_constraintDimensionRatio="H,16:9"
+        app:srcCompat="@drawable/safety" />
 
     <TextView
         android:id="@+id/helpTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pre-Task-Safety Plan"
+        android:text="@string/pre_task_safety_plan"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
@@ -33,6 +41,6 @@
         android:layout_marginRight="22dp"
         android:text="@string/ptp_explanation"
         android:textAlignment="center"
-        android:textSize="12sp" />
+        android:textSize="18sp" />
 
 </RelativeLayout>

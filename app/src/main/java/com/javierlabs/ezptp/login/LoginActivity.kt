@@ -2,15 +2,10 @@ package com.javierlabs.ezptp.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.javierlabs.ezptp.MainActivity
+import com.javierlabs.ezptp.main_menu.MenuActivity
 import com.javierlabs.ezptp.R
 
 class LoginActivity : AppCompatActivity() {
@@ -23,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
         val currentUser: FirebaseUser? = mAuth.currentUser //authenticate the current user
         if (currentUser != null) { //if currentUser is not null
             //switch to MainActivity
-            val autoLogin = Intent(this@LoginActivity, MainActivity::class.java)
+            val autoLogin = Intent(this@LoginActivity, MenuActivity::class.java)
             startActivity(autoLogin)
             finish()
         }

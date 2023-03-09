@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:paddingBottom="10dp"
-    tools:context=".MainMenuFragment">
+    tools:context=".main_menu.MainMenuFragment">
 
 
     <TextView
@@ -33,14 +33,14 @@
         android:padding="16dp"
         android:text="@string/start_ptp"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/help"
+        app:layout_constraintBottom_toTopOf="@+id/helpButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/help"
+        android:id="@+id/helpButton"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -65,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help" />
+        app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
 
     <TextView

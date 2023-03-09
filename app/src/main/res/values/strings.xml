@@ -120,5 +120,7 @@
     </string>
     <string name="start_ptp">Start PTP</string>
     <string name="help">Help</string>
+    <string name="pre_task_safety_plan">Pre-Task-Safety Plan</string>
+    <string name="disclaimer_image_regarding_safety">Disclaimer image regarding safety</string>
 
 </resources>
