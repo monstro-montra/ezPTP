@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.main_menu
+package com.javierlabs.ezptp.main.menu
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -10,6 +10,6 @@ class HelpPopupFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
         AlertDialog.Builder(requireActivity(), R.style.dialog)
-            .setView(R.layout.fragment_help_popup)
+            .setView(R.layout.main_fragment_help_popup)
             .create()
 }

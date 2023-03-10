@@ -1,12 +1,8 @@
-package com.javierlabs.ezptp.login
+package com.javierlabs.login
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.javierlabs.ezptp.main_menu.MenuActivity
-import com.javierlabs.ezptp.R
+import android.os.Bundle
 
 class LoginActivity : AppCompatActivity() {
     //lateinit guarantees that the variable will be initialized later

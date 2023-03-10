@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.login
+package com.javierlabs.ezptp.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,21 +8,21 @@ import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.javierlabs.ezptp.main_menu.MenuActivity
+import com.javierlabs.ezptp.main.MainActivity
 import com.javierlabs.ezptp.R
-import com.javierlabs.ezptp.databinding.FragmentRegisterBinding
+import com.javierlabs.ezptp.databinding.AuthFragmentRegisterBinding
 
 
-class RegisterFragment : Fragment(R.layout.fragment_register) {
+class RegisterFragment : Fragment(R.layout.auth_fragment_register) {
 
-    private var fragmentRegisterBinding : FragmentRegisterBinding? = null
+    private var fragmentRegisterBinding : AuthFragmentRegisterBinding? = null
     private lateinit var mAuth: FirebaseAuth
 
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentRegisterBinding.bind(view)
+        val binding = AuthFragmentRegisterBinding.bind(view)
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -48,7 +48,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                             Toast.makeText(activity, "Registration Successful.", Toast.LENGTH_SHORT).show()
                             activity?.let{
                                 //if all is successful, go to MainActivity class
-                                val goToMainActivity = Intent(it, MenuActivity::class.java)
+                                val goToMainActivity = Intent(it, MainActivity::class.java)
                                 it.startActivity(goToMainActivity)
                             }
 

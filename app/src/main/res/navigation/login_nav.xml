@@ -6,9 +6,9 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        tools:layout="@layout/fragment_register"
+        tools:layout="@layout/auth_fragment_register"
         android:id="@+id/registerFragment"
-        android:name="com.javierlabs.ezptp.login.RegisterFragment"
+        android:name="com.javierlabs.ezptp.auth.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
@@ -16,9 +16,9 @@
     </fragment>
 
     <fragment
-        tools:layout="@layout/fragment_login"
+        tools:layout="@layout/auth_fragment_login"
         android:id="@+id/loginFragment"
-        android:name="com.javierlabs.ezptp.login.LoginFragment"
+        android:name="com.javierlabs.ezptp.auth.LoginFragment"
         android:label="fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"

@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.login
+package com.javierlabs.ezptp.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,19 +8,19 @@ import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.javierlabs.ezptp.main_menu.MenuActivity
+import com.javierlabs.ezptp.main.MainActivity
 import com.javierlabs.ezptp.R
-import com.javierlabs.ezptp.databinding.FragmentLoginBinding
+import com.javierlabs.ezptp.databinding.AuthFragmentLoginBinding
 
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
-    private var fragmentLoginBinding : FragmentLoginBinding? = null
+class LoginFragment : Fragment(R.layout.auth_fragment_login) {
+    private var fragmentLoginBinding : AuthFragmentLoginBinding? = null
     //lateinit guarantees that the variable will be initialized later
     private lateinit var mAuth: FirebaseAuth
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentLoginBinding.bind(view)
+        val binding = AuthFragmentLoginBinding.bind(view)
         fragmentLoginBinding = binding
 
         mAuth = FirebaseAuth.getInstance()
@@ -47,7 +47,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             Toast.makeText(activity, "Login Successful.", Toast.LENGTH_SHORT).show()
                             activity?.let{
                                 //if all is successful, go to MainActivity class
-                                val goToMainActivity = Intent(it, MenuActivity::class.java)
+                                val goToMainActivity = Intent(it, MainActivity::class.java)
                                 it.startActivity(goToMainActivity)
                             }
 

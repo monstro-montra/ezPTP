@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:paddingBottom="10dp"
-    tools:context=".main_menu.MainMenuFragment">
+    tools:context=".main.menu.MainMenuFragment">
 
 
     <TextView

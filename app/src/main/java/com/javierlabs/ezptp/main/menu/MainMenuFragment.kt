@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.main_menu
+package com.javierlabs.ezptp.main.menu
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,18 +10,18 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.javierlabs.ezptp.R
-import com.javierlabs.ezptp.databinding.FragmentMainMenuBinding
-import com.javierlabs.ezptp.login.LoginActivity
+import com.javierlabs.ezptp.databinding.MainFragmentMainMenuBinding
+import com.javierlabs.ezptp.auth.AuthActivity
 
 
-class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
-    private var fragmentMainMenuBinding : FragmentMainMenuBinding? = null
+class MainMenuFragment : Fragment(R.layout.main_fragment_main_menu) {
+    private var fragmentMainMenuBinding : MainFragmentMainMenuBinding? = null
     private lateinit var mAuth: FirebaseAuth
     private lateinit var user : FirebaseUser
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentMainMenuBinding.bind(view)
+        val binding = MainFragmentMainMenuBinding.bind(view)
         fragmentMainMenuBinding = binding
 
         mAuth = Firebase.auth
@@ -30,7 +30,7 @@ class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
 
 
         if (user == null){
-            startActivity(Intent(context, LoginActivity::class.java))
+            startActivity(Intent(context, AuthActivity::class.java))
         } else {
             val email = "Logged in as: " + user.email
             binding.userDetails.text = email
@@ -45,7 +45,7 @@ class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
         }
         binding.logout.setOnClickListener {
             Firebase.auth.signOut()
-            startActivity(Intent(context, LoginActivity::class.java))
+            startActivity(Intent(context, AuthActivity::class.java))
         }
     }
 }

@@ -1,0 +1,54 @@
+{
+  "equipment": [
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80100,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80105,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80110,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80115,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80120,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80125,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80130,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80135,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80140,
+                  "panel": "CP80"
+                },
+                {
+                  "type": "conveyor",
+                  "equipmentID": 80145
+                }
+              ]
+
+}
