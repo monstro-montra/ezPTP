@@ -1,13 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.StartFragment">
 
-    <Spinner
-        android:id="@+id/equipments_spinner"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:dropDownWidth="wrap_content" />
-</androidx.core.widget.NestedScrollView>
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/tv_select_equipment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/select_equipment"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/equipments_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/content_description_spinner"
+            android:dropDownWidth="wrap_content"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_first_question"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select_equipment" />
+
+        <TextView
+            android:id="@+id/tv_first_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/first_question"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/equipments_spinner" />
+
+        <RadioGroup
+            android:id="@+id/rg_first_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_first_question">
+
+            <RadioButton
+                android:id="@+id/rb_first_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_answer_option_one" />
+
+            <RadioButton
+                android:id="@+id/rb_second_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_answer_option_two" />
+
+            <RadioButton
+                android:id="@+id/rb_third_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_answer_option_three" />
+
+            <RadioButton
+                android:id="@+id/rb_fourth_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_answer_option_four" />
+
+            <RadioButton
+                android:id="@+id/rb_fifth_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_answer_option_five" />
+
+            <RadioButton
+                android:id="@+id/rb_sixth_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_answer_option_six" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg_first_question" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

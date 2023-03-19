@@ -28,10 +28,9 @@ class StartFragment : Fragment() {
         val binding = FragmentStartBinding.bind(view)
         fragmentStartBinding = binding
         val spinner = binding.equipmentsSpinner
-
         val db = FirebaseFirestore.getInstance()
 
-        var equipment: MutableList<Equipment> = mutableListOf()
+        val equipment: MutableList<Equipment> = mutableListOf()
         equipment.add(element = Equipment(80100, "Conveyor", "CP80"))
         equipment.add(element = Equipment(80105, "Conveyor", "CP80"))
         equipment.add(element = Equipment(80110, "Conveyor", "CP80"))
