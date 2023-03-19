@@ -1,6 +1,8 @@
 package com.javierlabs.ezptp.main
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,29 +31,32 @@ class StartFragment : Fragment() {
         fragmentStartBinding = binding
         val spinner = binding.equipmentsSpinner
         val db = FirebaseFirestore.getInstance()
+        val equipmentList: MutableList<Equipment> = mutableListOf()
 
-        val equipment: MutableList<Equipment> = mutableListOf()
-        equipment.add(element = Equipment(80100, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80105, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80110, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80115, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80120, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80125, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80130, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80135, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80140, "Conveyor", "CP80"))
-        equipment.add(element = Equipment(80145, "Conveyor", "CP80"))
-
-        for(element: Equipment in equipment){
-            db.collection("equipment").document(element.equipmentID.toString()).set(element)
+        db.collection("equipment").addSnapshotListener{ snapshot, e ->
+            //error logic
+            if (e != null) {
+                Log.w(TAG, ("Listen Failed"))
+                return@addSnapshotListener
+            }
+            if (snapshot != null) {
+                val documents = snapshot.documents
+                documents.forEach{
+                    val equipment = it.toObject(Equipment::class.java)
+                    if  (equipment != null) {
+                        equipment.equipmentID = it.id
+                        equipmentList.add(equipment!!)
+                    }
+                }
+            }
+        }
+        val equipmentIDs: MutableList<String?> = mutableListOf()
+        equipmentList.forEach{ equipment: Equipment ->
+            equipmentIDs.add(equipment.equipmentID)
         }
 
-        val equipmentIDs: MutableList<Int?> = mutableListOf()
-        for (element: Equipment in equipment){
-            equipmentIDs.add(element.equipmentID)
-        }
         val adapter = activity?.let {
-            ArrayAdapter<Int>(
+            ArrayAdapter<String>(
                 it,
                 android.R.layout.simple_spinner_dropdown_item,
                 equipmentIDs
@@ -73,5 +78,7 @@ class StartFragment : Fragment() {
         }
 
     }
+
+
 
 }

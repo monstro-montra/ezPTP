@@ -24,12 +24,12 @@
         android:id="@+id/helpTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pre_task_safety_plan"
-        android:textSize="24sp"
+        android:layout_below="@+id/helpIV"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/helpIV"
-        />
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/pre_task_safety_plan"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/explainPTPTV"
@@ -39,6 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/ptp_explanation"
         android:textAlignment="center"
         android:textSize="18sp" />
