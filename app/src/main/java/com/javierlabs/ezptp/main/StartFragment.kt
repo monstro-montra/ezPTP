@@ -45,7 +45,7 @@ class StartFragment : Fragment() {
                     val equipment = it.toObject(Equipment::class.java)
                     if  (equipment != null) {
                         equipment.equipmentID = it.id
-                        equipmentList.add(equipment!!)
+                        equipmentList.add(equipment)
                     }
                 }
             }
