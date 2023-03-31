@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.javierlabs.ezptp.main.MainActivity
+import com.javierlabs.ezptp.main.ptp.MainActivity
 import com.javierlabs.ezptp.R
 import com.javierlabs.ezptp.databinding.AuthFragmentLoginBinding
 

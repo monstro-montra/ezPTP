@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.main
+package com.javierlabs.ezptp.main.ptp
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -15,7 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.javierlabs.ezptp.R
 import com.javierlabs.ezptp.data.Equipment
 import com.javierlabs.ezptp.databinding.FragmentStartBinding
-import kotlinx.coroutines.handleCoroutineException
 
 class StartFragment : Fragment() {
     private var fragmentStartBinding: FragmentStartBinding? = null
@@ -24,7 +23,7 @@ class StartFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_start, container, false)
+        return inflater.inflate(R.layout.ptp_fragment_start, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

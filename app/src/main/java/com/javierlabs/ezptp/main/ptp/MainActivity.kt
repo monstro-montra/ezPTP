@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.main
+package com.javierlabs.ezptp.main.ptp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

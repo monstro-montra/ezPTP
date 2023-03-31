@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.javierlabs.ezptp.main.MainActivity
+import com.javierlabs.ezptp.main.ptp.MainActivity
 import com.javierlabs.ezptp.R
 
 class AuthActivity : AppCompatActivity() {
