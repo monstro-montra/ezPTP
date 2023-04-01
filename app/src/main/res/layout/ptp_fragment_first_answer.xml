@@ -1,14 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.ptp.FirstAnswerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/hazards_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Select all hazards that apply to your current work environment:"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <CheckBox android:id="@+id/hazardous_energy_source_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Hazardous Energy Source"
+            app:layout_constraintTop_toBottomOf="@+id/hazards_tv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/work_from_heights_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Work From Heights"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hazardous_energy_source_cb" />
+
+        <CheckBox android:id="@+id/hot_work_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Hot Work"
+            app:layout_constraintTop_toBottomOf="@+id/work_from_heights_cb"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox android:id="@+id/confined_space_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Confined Space"
+            app:layout_constraintTop_toBottomOf="@+id/hot_work_cb"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox android:id="@+id/hoisting_and_rigging_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Hoisting and Rigging"
+            app:layout_constraintTop_toBottomOf="@+id/confined_space_cb"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox android:id="@+id/yard_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Activity in the yard or near moving vehicles"
+            app:layout_constraintTop_toBottomOf="@+id/hoisting_and_rigging_cb"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox android:id="@+id/active_ar_floor_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Non-standard task on active robotics floor"
+            app:layout_constraintTop_toBottomOf="@+id/yard_cb"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/fire_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Fire/Life-Safety System inspection, testing, or maintenance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/active_ar_floor_cb" />
+
+        <CheckBox android:id="@+id/construction_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Construction, Installation, or Demolition"
+            app:layout_constraintTop_toBottomOf="@+id/fire_cb"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox android:id="@+id/pit_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Activity involving PIT equipment or in PIT areas"
+            app:layout_constraintTop_toBottomOf="@+id/construction_cb"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/dock_door_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Dock door or leveler"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pit_cb" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/next"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dock_door_cb" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
