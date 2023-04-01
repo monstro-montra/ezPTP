@@ -6,18 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
 import com.javierlabs.ezptp.R
 import com.javierlabs.ezptp.data.Equipment
-import com.javierlabs.ezptp.databinding.FragmentStartBinding
+import com.javierlabs.ezptp.databinding.PtpFragmentStartBinding
 
 class StartFragment : Fragment() {
-    private var fragmentStartBinding: FragmentStartBinding? = null
+    private var fragmentStartBinding: PtpFragmentStartBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,14 +26,38 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentStartBinding.bind(view)
+        val binding = PtpFragmentStartBinding.bind(view)
         fragmentStartBinding = binding
         val spinner = binding.equipmentsSpinner
+        val radioGroup = binding.rgFirstQuestion
+        val nextButton = binding.nextButton
+
 
         fetchEquipmentData { equipmentList ->
             setupSpinner(spinner, equipmentList)
         }
+
+        select(radioGroup, nextButton)
+
     }
+
+    private fun select(radioGroup: RadioGroup, button: Button) {
+        radioGroup.setOnCheckedChangeListener { _, _ ->
+            button.visibility = View.VISIBLE
+        }
+
+        button.setOnClickListener {
+            when (radioGroup.checkedRadioButtonId) {
+                R.id.rb_first_option -> {
+                    findNavController().navigate(StartFragmentDirections.actionStartFragmentToFirstAnswerFragment()) //navigate to the FirstAnswerFragment
+                }
+                else -> {
+                    Log.d(TAG, "Not yet implemented!")
+                }
+            }
+        }
+    }
+
 
     // fetch from Firestore database and return a mutable list of Equipment objects upon successful fetch. otherwise throw an error log
     private fun fetchEquipmentData(onSuccess: (List<Equipment>) -> Unit) {
@@ -87,6 +109,8 @@ class StartFragment : Fragment() {
                         "You selected ${adapterView.getItemAtPosition(position)}",
                         Toast.LENGTH_LONG).show()
                 }
+
+
             }
         }
     }

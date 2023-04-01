@@ -18,5 +18,14 @@
         android:id="@+id/startFragment"
         android:name="com.javierlabs.ezptp.main.ptp.StartFragment"
         android:label="fragment_start"
-        tools:layout="@layout/ptp_fragment_start" />
+        tools:layout="@layout/ptp_fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_firstAnswerFragment"
+            app:destination="@id/firstAnswerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstAnswerFragment"
+        android:name="com.javierlabs.ezptp.main.ptp.FirstAnswerFragment"
+        android:label="ptp_fragment_first_answer"
+        tools:layout="@layout/ptp_fragment_first_answer" />
 </navigation>
