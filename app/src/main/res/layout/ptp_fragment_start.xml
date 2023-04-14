@@ -70,36 +70,42 @@
                 android:id="@+id/rb_first_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
                 android:text="@string/first_answer_option_one" />
 
             <RadioButton
                 android:id="@+id/rb_second_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
                 android:text="@string/first_answer_option_two" />
 
             <RadioButton
                 android:id="@+id/rb_third_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
                 android:text="@string/first_answer_option_three" />
 
             <RadioButton
                 android:id="@+id/rb_fourth_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
                 android:text="@string/first_answer_option_four" />
 
             <RadioButton
                 android:id="@+id/rb_fifth_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
                 android:text="@string/first_answer_option_five" />
 
             <RadioButton
                 android:id="@+id/rb_sixth_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
                 android:text="@string/first_answer_option_six" />
         </RadioGroup>
 
@@ -112,6 +118,7 @@
             android:text="@string/next"
             android:textColor="@color/colorWhite"
             android:visibility="invisible"
+            android:buttonTint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
