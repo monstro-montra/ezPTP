@@ -1,0 +1,28 @@
+<mxfile host="Electron" modified="2023-04-15T07:12:16.927Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="4tOaHUsd7y7cMnCnyDMu" version="21.1.2" type="device">
+  <diagram name="Page-1" id="52a04d89-c75d-2922-d76d-85b35f80e030">
+    <mxGraphModel dx="3678" dy="1505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="17472293e6e8944d-30" value="Yes" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-740" y="70" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TIkJp2y1y1sTe_ebrqLJ-1" value="Yes, the Work Order is being completed by an Avetta Certified 3 rd Party Supplier or under the emergency contractor/supplier onboarding procedure" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-580" y="70" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TIkJp2y1y1sTe_ebrqLJ-3" value="Yes, the Work Order is being completed by an Avetta Certified 3 rd Party Supplier or under the emergency contractor/supplier onboarding procedure" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-180" y="70" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TIkJp2y1y1sTe_ebrqLJ-4" value="No, and I will perform a Take-2 Assessment before beginning my work." style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="220" y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TIkJp2y1y1sTe_ebrqLJ-5" value="No, no work performed on this work order" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="70" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TIkJp2y1y1sTe_ebrqLJ-6" value="I need help" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="120" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
