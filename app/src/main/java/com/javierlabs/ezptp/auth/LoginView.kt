@@ -152,7 +152,6 @@ fun LoginView(
             )
         }
     }
-
 }
 
 @Preview(showBackground = true)

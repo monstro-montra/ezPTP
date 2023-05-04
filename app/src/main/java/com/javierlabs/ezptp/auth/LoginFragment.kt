@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.material.Button
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.javierlabs.ezptp.R
+import com.javierlabs.ezptp.databinding.AuthFragmentLoginBinding
+
 //import com.javierlabs.ezptp.databinding.AuthFragmentLoginBinding
 
 
 class LoginFragment : Fragment(R.layout.auth_fragment_login) {
-//    private var fragmentLoginBinding : AuthFragmentLoginBinding? = null
+    private var fragmentLoginBinding : AuthFragmentLoginBinding? = null
     //lateinit guarantees that the variable will be initialized later
     private lateinit var mAuth: FirebaseAuth
     private lateinit var composeView: ComposeView
@@ -32,18 +33,17 @@ class LoginFragment : Fragment(R.layout.auth_fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val binding = AuthFragmentLoginBinding.bind(view)
+        fragmentLoginBinding = binding
 
-        composeView.setContent {
-            val state by viewModel.state.collectAsState()
-            LoginView(
-                state = state,
-                onLoginClick = {
-                    //do nothing for now
-                }
-            )
+        binding.loginBtn.setContent{
+            Button(onClick = {
+
+            }){
+
+            }
         }
-//        val binding = AuthFragmentLoginBinding.bind(view)
-//        fragmentLoginBinding = binding
+
 //
 //        mAuth = FirebaseAuth.getInstance()
 //
