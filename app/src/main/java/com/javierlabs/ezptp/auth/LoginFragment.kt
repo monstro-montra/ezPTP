@@ -37,7 +37,7 @@ class LoginFragment : Fragment(R.layout.auth_fragment_login) {
             val state by viewModel.state.collectAsState()
             LoginView(
                 state = state,
-                onNextClick = {
+                onLoginClick = {
                     //do nothing for now
                 }
             )
