@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.auth
+package com.javierlabs.ezptp.auth.login
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,13 +23,12 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -42,17 +41,19 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.javierlabs.ezptp.R
+import com.javierlabs.ezptp.auth.Destination
 import com.javierlabs.ezptp.themes.colorPrimaryFaded2
 import com.javierlabs.ezptp.themes.colorWhite
 
 @Composable
 fun RegisterScreen(
     navController: NavHostController,
-    onRegisterClick: () -> Unit = {}
+    loginViewModel: LoginViewModel? = null,
 ) {
-    var emailText by remember { mutableStateOf ("")}
-    var passwordText by remember {mutableStateOf( "")}
+    val loginUIState = loginViewModel?.loginUIState
+    val context = LocalContext.current
     var revealPassword: MutableState<Boolean> = remember { mutableStateOf(false)}
+
     Column(
         Modifier
             .padding(16.dp)
@@ -73,8 +74,8 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(height = 140.dp)) //spacer between login text and the email text field
 
         TextField( //text field for email
-            value = emailText,
-            onValueChange = { emailText = it },
+            value = loginUIState?.regEmail ?: "",
+            onValueChange = { loginViewModel?.onRegEmailChange(it)}, //call onRegEmailChange function from viewmodel
             label = { Text ("Email") },
             leadingIcon = {
                 Icon(
@@ -90,8 +91,8 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(height = 25.dp))
 
         TextField( //text field for password
-            value = passwordText,
-            onValueChange = { passwordText = it },
+            value = loginUIState?.regPassword ?: "",
+            onValueChange = { loginViewModel?.onRegPasswordChange(it)}, //call the onRegPasswordChange function from the viewmodel
             label = { Text ("Password") },
             visualTransformation = if (revealPassword.value) {
                 VisualTransformation.None
@@ -132,8 +133,8 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(height = 25.dp))
 
         TextField( //text field for re-enter password
-            value = passwordText,
-            onValueChange = { passwordText = it },
+            value = loginUIState?.regConfirmPassword ?: "",
+            onValueChange = { loginViewModel?.onRegPasswordChange(it)}, //call the onRegPasswordChange function from viewmodel
             label = { Text ("Re-Enter Password") },
             visualTransformation = if (revealPassword.value) {
                 VisualTransformation.None
@@ -190,7 +191,7 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(height = 120.dp)) //spacer between forgot password and log in button
 
         Button( //login button
-            onClick = onRegisterClick,
+            onClick = { loginViewModel?.createUser(context) },
             shape = RoundedCornerShape(25),
             colors = ButtonDefaults.buttonColors(colorPrimaryFaded2),
             modifier = Modifier.width(250.dp)

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.javierlabs.ezptp.R
+import com.javierlabs.ezptp.auth.login.LoginViewModel
 import com.javierlabs.ezptp.databinding.AuthFragmentLoginBinding
 
 //import com.javierlabs.ezptp.databinding.AuthFragmentLoginBinding

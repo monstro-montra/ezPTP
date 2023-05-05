@@ -1,4 +1,4 @@
-package com.javierlabs.ezptp.auth
+package com.javierlabs.ezptp.auth.login
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
@@ -22,14 +23,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -42,17 +43,22 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.javierlabs.ezptp.R
+import com.javierlabs.ezptp.auth.Destination
 import com.javierlabs.ezptp.themes.colorPrimaryFaded2
 import com.javierlabs.ezptp.themes.colorWhite
 
+//composable functions should not know anything about services or business logic. they should simply observe state changes emitted by the ViewModel. ViewModels actually access the service.
 @Composable
 fun LoginScreen(
     navController: NavHostController,
-    onLoginClick: () -> Unit = {},
+    loginViewModel: LoginViewModel? = null,
 ) {
-    var emailText by remember { mutableStateOf ("")}
-    var passwordText by remember {mutableStateOf( "")}
+    val loginUIState = loginViewModel?.loginUIState
+    val isError = loginUIState?.loginError != null
+    val context = LocalContext.current
     var revealPassword: MutableState<Boolean> = remember { mutableStateOf(false)}
+
+
     Column(
         Modifier
             .padding(16.dp)
@@ -73,8 +79,8 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(height = 140.dp)) //spacer between login text and the email textfield
 
         TextField( //textfield for email
-            value = emailText,
-            onValueChange = { emailText = it },
+            value = loginUIState?.email ?: "",
+            onValueChange = { loginViewModel?.onPasswordChange(it) }, //update the login
             label = { Text ("Email") },
             leadingIcon = {
                 Icon(
@@ -90,10 +96,10 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(height = 25.dp))
 
         TextField( //textfield for password
-            value = passwordText,
-            onValueChange = { passwordText = it },
+            value = loginUIState?.password ?: "",
+            onValueChange = { loginViewModel?.onPasswordChange(it)}, //update the password with function from the viewModel
             label = { Text ("Password") },
-            visualTransformation = if (revealPassword.value) {
+            visualTransformation = if (revealPassword.value) { //allows for the password to be hidden
                 VisualTransformation.None
             } else {
                PasswordVisualTransformation()
@@ -146,7 +152,7 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(height = 120.dp)) //spacer between forgot password and log in button
 
         Button( //login button
-            onClick = onLoginClick,
+            onClick = { loginViewModel?.login(context) }, // call the login function from loginViewModel
             shape = RoundedCornerShape(25),
             colors = ButtonDefaults.buttonColors(colorPrimaryFaded2),
             modifier = Modifier
@@ -158,6 +164,18 @@ fun LoginScreen(
                 color = colorWhite
             )
         }
+
+        if(loginUIState?.isLoading == true){
+            CircularProgressIndicator()
+        }
+
+        LaunchedEffect(key1 = loginViewModel?.hasUser){
+            if(loginViewModel?.hasUser == true){
+                navController.navigate(Destination.Home.route) //navigate to home screen
+            }
+        }
+
+
     }
 }
 

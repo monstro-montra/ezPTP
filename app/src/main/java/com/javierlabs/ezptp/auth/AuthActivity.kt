@@ -15,11 +15,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.javierlabs.ezptp.auth.login.LoginScreen
+import com.javierlabs.ezptp.auth.login.RegisterScreen
+import com.javierlabs.ezptp.auth.ui.HomeScreen
 import com.javierlabs.ezptp.main.ptp.MainActivity
 
 sealed class Destination (val route: String){
     object Login: Destination("login")
     object Register: Destination("register")
+    object Home: Destination("home")
 }
 
 class AuthActivity : AppCompatActivity() {
@@ -40,6 +44,8 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mAuth = FirebaseAuth.getInstance() //get the firebase instance
+
         setContent {
             Surface(
                 modifier = Modifier.fillMaxSize(),
@@ -58,5 +64,6 @@ fun NavigationAppHost(navController: NavHostController){
         //all of the possible destinations for the nav controller
         composable(Destination.Login.route) { LoginScreen(navController) }
         composable(Destination.Register.route){ RegisterScreen(navController) }
+        composable(Destination.Home.route){HomeScreen(navController) }
     }
 }
