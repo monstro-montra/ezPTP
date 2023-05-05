@@ -1,5 +1,6 @@
 package com.javierlabs.ezptp.auth
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,14 +39,17 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.javierlabs.ezptp.R
 import com.javierlabs.ezptp.themes.colorPrimaryFaded2
 import com.javierlabs.ezptp.themes.colorWhite
 
 @Composable
-fun LoginView(
-    state: FirstState,
-    onLoginClick: () -> Unit = {}
+fun LoginScreen(
+    navController: NavHostController,
+    onLoginClick: () -> Unit = {},
+    onForgotPassword: () -> Unit = {}
 ) {
     var emailText by remember { mutableStateOf ("")}
     var passwordText by remember {mutableStateOf( "")}
@@ -132,7 +136,10 @@ fun LoginView(
             verticalAlignment = Alignment.CenterVertically){
             Spacer(modifier = Modifier.width(width = 150.dp)) //spacer between password and log in button
             Text(
-                text = "Forgot Password?"
+                text = "Forgot Password?",
+                modifier = Modifier.clickable(
+                    onClick = { navController.navigate(Destination.Register.route) }
+                )
             )
 
         }
@@ -143,7 +150,8 @@ fun LoginView(
             onClick = onLoginClick,
             shape = RoundedCornerShape(25),
             colors = ButtonDefaults.buttonColors(colorPrimaryFaded2),
-            modifier = Modifier.width(250.dp)
+            modifier = Modifier
+                .width(250.dp)
                 .height(50.dp)
         ){
             Text(
@@ -157,5 +165,5 @@ fun LoginView(
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
-    LoginView(FirstState())
+    LoginScreen(rememberNavController())
 }

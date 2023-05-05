@@ -2,11 +2,25 @@ package com.javierlabs.ezptp.auth
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.javierlabs.ezptp.main.ptp.MainActivity
-import com.javierlabs.ezptp.R
+
+sealed class Destination (val route: String){
+    object Login: Destination("login")
+    object Register: Destination("register")
+}
 
 class AuthActivity : AppCompatActivity() {
     //lateinit guarantees that the variable will be initialized later
@@ -26,9 +40,23 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.auth_activity_login) //set the content view to activity_login layout file
+        setContent {
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colors.background
+            ) {
+                val navController = rememberNavController()
+                NavigationAppHost(navController = navController)
+            }
+        }
+    }
+}
 
-        mAuth = FirebaseAuth.getInstance()
-
+@Composable
+fun NavigationAppHost(navController: NavHostController){
+    NavHost(navController = navController, startDestination = "login") {
+        //all of the possible destinations for the nav controller
+        composable(Destination.Login.route) { LoginScreen(navController) }
+        composable(Destination.Register.route){ RegisterScreen(navController) }
     }
 }

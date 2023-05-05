@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class LoginViewModel: ViewModel(){
+class RegisterViewModel: ViewModel(){
 
-    private val _state = MutableStateFlow(LoginState())
+    private val _state = MutableStateFlow(RegisterState())
     val state = _state.asStateFlow()
 }
 
-class LoginState
+class RegisterState
