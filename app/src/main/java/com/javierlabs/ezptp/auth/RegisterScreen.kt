@@ -70,9 +70,9 @@ fun RegisterScreen(
             )
         )
 
-        Spacer(modifier = Modifier.height(height = 140.dp)) //spacer between login text and the email textfield
+        Spacer(modifier = Modifier.height(height = 140.dp)) //spacer between login text and the email text field
 
-        TextField( //textfield for email
+        TextField( //text field for email
             value = emailText,
             onValueChange = { emailText = it },
             label = { Text ("Email") },
@@ -89,7 +89,7 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(height = 25.dp))
 
-        TextField( //textfield for password
+        TextField( //text field for password
             value = passwordText,
             onValueChange = { passwordText = it },
             label = { Text ("Password") },
@@ -131,7 +131,7 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(height = 25.dp))
 
-        TextField( //textfield for re-enter password
+        TextField( //text field for re-enter password
             value = passwordText,
             onValueChange = { passwordText = it },
             label = { Text ("Re-Enter Password") },

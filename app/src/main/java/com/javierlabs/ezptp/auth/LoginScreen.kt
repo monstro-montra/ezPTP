@@ -49,7 +49,6 @@ import com.javierlabs.ezptp.themes.colorWhite
 fun LoginScreen(
     navController: NavHostController,
     onLoginClick: () -> Unit = {},
-    onForgotPassword: () -> Unit = {}
 ) {
     var emailText by remember { mutableStateOf ("")}
     var passwordText by remember {mutableStateOf( "")}
